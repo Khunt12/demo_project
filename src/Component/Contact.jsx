@@ -16,10 +16,8 @@ const Contact = () => {
             message: message
         };
 
-        // Update the state with the new data
         setFormData([...formData, newFormData]);
 
-        // Clear the input fields
         setName('');
         setEmail('');
         setMessage('');
