@@ -41,20 +41,8 @@ const Contact = () => {
                     ></textarea>
                     <button type="submit" onClick={updateValue}> Send Message</button>
                 </form>
-
-                <div>
-                    {/* Display form data with index */}
-                    {formData.map((data, index) => (
-                        <div key={index}>
-                            <p>Index: {index}</p>
-                            <p>Name: {data.name}</p>
-                            <p>Email: {data.email}</p>
-                            <p>Message: {data.message}</p>
-                        </div>
-                    ))}
-                </div>
             </div>
-        </div>
+        </div >
     );
 }
 
