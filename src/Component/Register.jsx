@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import '../Css/Register.css'
 import { DevTool } from "@hookform/devtools";
 import { useForm } from "react-hook-form";
 import TableData from './Registerss/TableData';
 import FormFormat from "./Registerss/FormFormat";
-
+import { useDispatch } from "react-redux";
 
 const Register = () => {
     const formatData = {
@@ -23,9 +23,11 @@ const Register = () => {
         pass: '',
     }
 
-    const [form, setForm] = useState(formatData)
+    const [_form, setForm] = useState(formatData)
     const [formData, setFormData] = useState([])
     const [editIndex, setEditIndex] = useState(null);
+    const dispatch = useDispatch()
+
     // console.log(formData);
     const formChange = (event) => {
         const { value, name, checked } = event.target;
@@ -57,22 +59,28 @@ const Register = () => {
             }
         }
     }
-
-    const storeDaata = (event) => {
+    const storeDaata = () => {
+        let finalUpdate = []
         if (editIndex !== null) {
             const updatedData = [...formData];
-            updatedData[editIndex] = form;
+            updatedData[editIndex] = _form;
             setFormData(updatedData);
+            finalUpdate = updatedData
             setEditIndex(null)
-
-            console.log('updated data', form);
+            console.log('updated data', _form);
         } else {
-            const reForm = { ...form };
+            const reForm = { ..._form };
             setFormData([...formData, reForm]);
+            finalUpdate = [...formData, reForm]
             console.log('register data', reForm);
         }
         setForm(formatData);
         newCheck(false)
+
+        dispatch({
+            type: 'UPDATE_FORM_DATA',
+            payload: finalUpdate
+        })
     }
 
     const handleEdit = (index) => {
@@ -83,23 +91,24 @@ const Register = () => {
     };
 
     const test = (e) => {
-        let testData = { ...form }
+        let testData = { ..._form }
         const { value, name, checked } = e.target;
         if (name === "hobby") testData[name][value] = checked;
         if (name === 'gender') testData[name] = value
         setForm(testData)
     }
-    useEffect(() => {
-        localStorage.setItem('form', JSON.stringify(formData))
-    }, [formData])
     const { register, control, handleSubmit, formState: { errors }, setValue } = useForm();
     return (
         <>
-            <FormFormat formChange={formChange} form={form} storeDaata={storeDaata} test={test} register={register}
+            <FormFormat formChange={formChange} form={_form} storeDaata={storeDaata} test={test} register={register}
                 handleSubmit={handleSubmit} errors={errors} setValue={setValue} />
             <DevTool control={control} />
             <TableData formData={formData} handleEdit={handleEdit} />
         </>
     )
 }
+
 export default Register;
+
+
+

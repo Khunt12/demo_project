@@ -2,10 +2,15 @@ import React from "react";
 import '../Registerss/TableData.css'
 
 import { Educations, Genders } from "./test";
+import { shallowEqual, useSelector } from "react-redux";
 
-const TableData = ({ formData, handleEdit }) => {
-
-
+const TableData = ({ handleEdit }) => {
+    const Pppp = useSelector(
+        (state) => state.formData,
+        shallowEqual
+    )
+    const { AllformData } = Pppp || [];
+    // console.log('tabledata=-=-=--', AllformData);
     return (
         <>
             <h2>Register Data</h2>
@@ -31,7 +36,7 @@ const TableData = ({ formData, handleEdit }) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {formData.map((data, index) => {
+                    {AllformData.map((data, index) => {
                         return (
                             <tr key={index}>
                                 <td>{index + 1}</td>
@@ -46,8 +51,7 @@ const TableData = ({ formData, handleEdit }) => {
                                 <td>{data.pin}</td>
                                 <td>{data.state}</td>
                                 <td>{Educations[data.education]}</td>
-                                <td>{Object.keys(data.hobby).filter(key => data.hobby[key]).join(', ')}</td>
-                                {console.log('hobby data', Object.keys(data.hobby).filter(key => data.hobby[key]).join(', '))}
+                                <td>{Object.keys(data.hobby).filter(() => data.hobby).join(', ')}</td>
                                 <td>{data.pass}</td>
                                 <td><button onClick={() => handleEdit(index)}>Edit</button></td>
                             </tr>
