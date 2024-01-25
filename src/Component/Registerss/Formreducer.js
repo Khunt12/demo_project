@@ -8,10 +8,12 @@ const FormReducer = (state = initialState, action) => {
             return {
                 ...state,
                 AllformData: action.payload,
+
             };
         default:
             return state;
     }
+
 };
 
 export default FormReducer;

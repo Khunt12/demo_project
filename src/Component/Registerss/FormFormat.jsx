@@ -52,7 +52,7 @@ const FormFormat = ({ formChange, form, storeDaata, test, handleSubmit, register
 
                 <Hobby form={form} test={test} />
 
-                <Password register={register} form={form} formChange={formChange} errors={errors} setValue={setValue} />
+                <Password register={register} form={form} formChange={formChange} errors={errors} />
 
                 <button type="submit">Submit</button>
             </form>
