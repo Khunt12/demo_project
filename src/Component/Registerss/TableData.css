@@ -15,3 +15,16 @@ td {
 th {
     background-color: #f2f2f2;
 }
+
+
+.buttonsss {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 15px;
+    transition: opacity 0.3s ease;
+}
+
+.buttonsss.active {
+    opacity: 0.5;
+}

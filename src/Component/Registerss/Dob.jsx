@@ -1,6 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Dob = ({ register, formChange, form, errors }) => {
+    const [errorMsg, setErrorMsg] = useState("");
+    const newDate = new Date().toISOString().split('T')[0];
+
+    const handleDate = (event) => {
+        const oldDate = event.target.value;
+        if (newDate < oldDate) {
+            setErrorMsg('Date is invalide')
+        } else {
+            setErrorMsg('')
+        }
+        formChange(event)
+    }
     return (
         <>
             <label htmlFor="dob">Date of Birth</label>
@@ -8,10 +20,12 @@ const Dob = ({ register, formChange, form, errors }) => {
                 type="date"
                 name="dob"
                 {...register("dob", { required: 'Date of Birth is required' })}
-                onChange={formChange}
+                onChange={handleDate}
                 value={form.dob}
             />
-            {errors && <span>{errors?.dob?.message}</span>}<br />
+            <div style={{ color: "red", fontSize: '12px', paddingLeft: '80px' }}>{errorMsg}</div>
+            {errors && <span>{errors?.dob?.message}</span>}
+
         </>
     )
 }

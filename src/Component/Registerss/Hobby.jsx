@@ -11,7 +11,7 @@ const Hobby = ({ form, test }) => {
                         type="checkbox"
                         name="hobby"
                         value={hb}
-                        checked={form.hobby && form.hobby[`${hb}`]}
+                        checked={form.hobby && form.hobby[hb]}
                         onChange={(e) => test(e)}
                     />
                     <label htmlFor={hb}>{Hobbys[hb]}</label><br />
