@@ -28,3 +28,18 @@ export const Hobbys = {
     leader: 'Leader'
 }
 
+export const formatData = {
+    fname: '',
+    lname: '',
+    moblie: '',
+    email: '',
+    gender: '',
+    dob: '',
+    address: '',
+    city: '',
+    pin: '',
+    state: '',
+    education: '',
+    hobby: {},
+    pass: '',
+}
