@@ -5,6 +5,7 @@ import App from '../src/Component/App';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './Component/Registerss/store';
+import '../src/Component/Registerss/TableData.css'
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

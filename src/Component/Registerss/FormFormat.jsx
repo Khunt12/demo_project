@@ -31,7 +31,7 @@ const FormFormat = ({ formChange, form, storeDaata, test, handleSubmit, register
     }
     return (
         <>
-            <h1>Register Form</h1>
+            <h1>Survey Form</h1>
             <form id="myForm" onSubmit={handleSubmit(storeDaata)}>
 
                 {shortCut(FullName)}
