@@ -43,3 +43,21 @@ export const formatData = {
     hobby: {},
     pass: '',
 }
+
+export const TableHead = {
+    Id: 'ID',
+    FirstName: 'FirstName',
+    LastName: 'LastName',
+    Email: 'Email',
+    Mobile_Number: 'Mobile Number',
+    Gender: 'Gender',
+    Date_of_Birth: 'Date of Birth',
+    Address: 'Address',
+    City: 'City',
+    Pin_Code: 'Pin-Code',
+    State: 'State',
+    Education: 'Education',
+    Hobby: 'Hobby',
+    Password: 'Password',
+    Edit: 'Edit'
+}
