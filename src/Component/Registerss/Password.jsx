@@ -6,6 +6,7 @@ const Password = ({ register, formChange, form, errors }) => {
     const [showPassword, setShowPassword] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
 
+    // password validation using if-else
     const handlePassword = (event) => {
         const new_pass = event.target.value;
 

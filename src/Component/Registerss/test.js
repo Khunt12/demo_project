@@ -61,3 +61,15 @@ export const TableHead = {
     Password: 'Password',
     Edit: 'Edit'
 }
+
+export const Searchs = {
+    fname: '',
+    lname: '',
+    email: '',
+    moblie: '',
+    address: '',
+    city: '',
+    pin: '',
+    state: '',
+    education: ''
+}
