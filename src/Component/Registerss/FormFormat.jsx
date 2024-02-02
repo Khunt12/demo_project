@@ -10,6 +10,8 @@ import Hobby from './Hobby'
 import Password from "./Password";
 
 const FormFormat = ({ formChange, form, storeDaata, test, handleSubmit, register, errors, setValue }) => {
+
+    //for text input using map for less code
     const shortCut = (valss) => {
         return (
             Object.keys(valss).map((op, key) => {
@@ -31,7 +33,7 @@ const FormFormat = ({ formChange, form, storeDaata, test, handleSubmit, register
     }
     return (
         <>
-            <h1>Survey Form</h1>
+            <h1>Register Form</h1>
             <form id="myForm" onSubmit={handleSubmit(storeDaata)}>
 
                 {shortCut(FullName)}

@@ -4,6 +4,8 @@ const Dob = ({ register, formChange, form, errors }) => {
     const [errorMsg, setErrorMsg] = useState("");
     const newDate = new Date().toISOString().split('T')[0];
 
+
+    //for validation in Date of Birth
     const handleDate = (event) => {
         const oldDate = event.target.value;
         if (newDate < oldDate) {

@@ -12,7 +12,7 @@ function Navbar() {
         <div className="navbar">
             <div className="rightSide">
                 <NavLink to="/"> Home </NavLink>
-                <NavLink to="/register"> Survey </NavLink>
+                <NavLink to="/register"> Register </NavLink>
                 <NavLink to="/contact"> Contact </NavLink>
                 <button onClick={toggleNavbar}>
                 </button>
